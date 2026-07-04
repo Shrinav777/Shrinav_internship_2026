@@ -1,0 +1,10 @@
+print("my name is jaydip")
+print("Python Program Started")
+for i in range(1, 11):
+    print("Number:", i)
+print("Loop Completed")
+print("Thank You!")
+print("Python is Easy")
+print("Keep Learning")
+print("Program Ended")
+print("Goodbye!")
