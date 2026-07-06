@@ -1,0 +1,136 @@
+//Encapsulation
+
+
+class Student {
+
+    private String name;
+    private int rollNo;
+
+    public Student(String name, int rollNo) {
+        this.name = name;
+        this.rollNo = rollNo;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getRollNo() {
+        return rollNo;
+    }
+}
+
+public class SchoolManagement1 {
+
+    public static void main(String[] args) {
+
+        Student s = new Student("Rahul", 15);
+
+        System.out.println("Student Name : " + s.getName());
+        System.out.println("Roll No : " + s.getRollNo());
+    }
+}
+
+
+//Inheritance
+
+
+class School {
+
+    public void schoolName() {
+        System.out.println("School Name : ABC School");
+    }
+}
+
+class Teacher extends School {
+
+    public void teacherName() {
+        System.out.println("Teacher Name : Mr. Raj");
+    }
+}
+
+public class SchoolManagement2 {
+
+    public static void main(String[] args) {
+
+        Teacher t = new Teacher();
+
+        t.schoolName();
+        t.teacherName();
+    }
+}
+
+
+
+//Polymorphism
+
+
+class Person {
+
+    public void work() {
+        System.out.println("School Member");
+    }
+}
+
+class Teacher extends Person {
+
+    @Override
+    public void work() {
+        System.out.println("Teaching Students");
+    }
+}
+
+class Student extends Person {
+
+    @Override
+    public void work() {
+        System.out.println("Learning Subjects");
+    }
+}
+
+public class SchoolManagement3 {
+
+    public static void main(String[] args) {
+
+        Person p;
+
+        p = new Teacher();
+        p.work();
+
+        p = new Student();
+        p.work();
+    }
+}
+
+
+
+//Abstraction
+
+
+abstract class Person {
+
+    abstract void work();
+
+    public void school() {
+        System.out.println("Welcome to ABC School");
+    }
+}
+
+class Teacher extends Person {
+
+    @Override
+    void work() {
+        System.out.println("Teacher is Teaching");
+    }
+}
+
+public class SchoolManagement4 {
+
+    public static void main(String[] args) {
+
+        Teacher t = new Teacher();
+
+        t.school();
+        t.work();
+    }
+}
