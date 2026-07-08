@@ -1,0 +1,132 @@
+//Encapsulation
+
+class Book {
+
+    private String bookName;
+    private String author;
+
+    public Book(String bookName, String author) {
+        this.bookName = bookName;
+        this.author = author;
+    }
+
+    public String getBookName() {
+        return bookName;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+}
+
+public class LibraryManagement1 {
+
+    public static void main(String[] args) {
+
+        Book b = new Book("Java Programming", "James Gosling");
+
+        System.out.println("Book Name : " + b.getBookName());
+        System.out.println("Author : " + b.getAuthor());
+    }
+}
+
+// inheritance
+
+class Library {
+
+    public void libraryName() {
+        System.out.println("Library Name : Central Library");
+    }
+}
+
+class Student extends Library {
+
+    public void studentName() {
+        System.out.println("Student Name : Dhruv");
+    }
+}
+
+public class LibraryManagement2 {
+
+    public static void main(String[] args) {
+
+        Student s = new Student();
+
+        s.libraryName();
+        s.studentName();
+    }
+}
+
+
+//Polymorphism
+
+
+class User {
+
+    public void role() {
+        System.out.println("Library User");
+    }
+}
+
+class Student extends User {
+
+    @Override
+    public void role() {
+        System.out.println("I am a Student");
+    }
+}
+
+class Librarian extends User {
+
+    @Override
+    public void role() {
+        System.out.println("I am a Librarian");
+    }
+}
+
+public class LibraryManagement3 {
+
+    public static void main(String[] args) {
+
+        User u;
+
+        u = new Student();
+        u.role();
+
+        u = new Librarian();
+        u.role();
+    }
+}
+
+
+//Abstraction 
+
+
+
+abstract class User {
+
+    abstract void role();
+
+    public void library() {
+        System.out.println("Welcome to Central Library");
+    }
+}
+
+class Student extends User {
+
+    @Override
+    void role() {
+        System.out.println("Student is Reading Books");
+    }
+}
+
+public class LibraryManagement4 {
+
+    public static void main(String[] args) {
+
+        Student s = new Student();
+
+        s.library();
+        s.role();
+    }
+}
