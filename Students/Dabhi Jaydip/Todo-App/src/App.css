@@ -1,0 +1,106 @@
+/* Core alignment framework configurations layout rules setup */
+.todo-app-root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+}
+
+/* Master container configurations for the graphical display surface layers */
+.todo-main-wrapper {
+  background: #1e1e2f;
+  padding: 30px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 410px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  color: #ffffff;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* User interaction element forms block wrapper positions alignment rules */
+.task-form-controls {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.task-form-controls input {
+  flex: 1;
+  padding: 12px 14px;
+  border-radius: 6px;
+  border: 1px solid #44445c;
+  background: #2d2d44;
+  color: #ffffff;
+  outline: none;
+  font-size: 15px;
+}
+
+.task-form-controls button {
+  background: #6c5ce7;
+  color: #ffffff;
+  border: none;
+  padding: 0 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15px;
+  transition: background 0.2s ease;
+}
+
+.task-form-controls button:hover {
+  background: #5b4cc4;
+}
+
+/* Structural mapping nodes display blocks alignment parameters rules */
+.task-render-block {
+  list-style: none;
+  padding: 0;
+}
+
+.task-render-block li {
+  background: #2d2d44;
+  padding: 14px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-left: 4px solid #6c5ce7;
+  transition: all 0.2s ease;
+}
+
+/* Modifiers configuration properties values applied to finished statuses indicators */
+.task-render-block li.task-checked {
+  border-left-color: #2ed573;
+  opacity: 0.4;
+  text-decoration: line-through;
+}
+
+.task-content-label {
+  cursor: pointer;
+  flex: 1;
+  padding-right: 10px;
+}
+
+/* Interface destruction components actionable triggers setup settings */
+.task-delete-trigger {
+  background: #ff7675;
+  color: #ffffff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background 0.2s;
+}
+
+.task-delete-trigger:hover {
+  background: #ee5253;
+}
