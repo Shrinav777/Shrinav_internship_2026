@@ -1,0 +1,94 @@
+/* Center wrapper layout viewport setup elements alignment */
+.stopwatch-root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+}
+
+/* Master canvas panel layers styling variables attributes definitions */
+.stopwatch-card {
+  background: #1e1e2f;
+  padding: 40px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  text-align: center;
+}
+
+h2 {
+  font-weight: 600;
+  margin-bottom: 30px;
+  letter-spacing: 0.5px;
+}
+
+/* Large numbers numeric monitoring tracking window dashboard settings */
+.stopwatch-display {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 48px;
+  font-weight: bold;
+  background: #2d2d44;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 35px;
+  border: 1px solid #44445c;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px rgba(108, 92, 231, 0.3);
+}
+
+/* Control blocks row settings grids alignment parameters definitions */
+.stopwatch-controls {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* Action button configurations bases elements tracking status metrics */
+.stopwatch-controls button {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.1s ease, background 0.2s ease;
+  min-width: 100px;
+}
+
+.stopwatch-controls button:active {
+  transform: scale(0.95);
+}
+
+.btn-start {
+  background: #2ed573;
+  color: white;
+}
+.btn-start:hover {
+  background: #26af5f;
+}
+
+.btn-stop {
+  background: #ff7675;
+  color: white;
+}
+.btn-stop:hover {
+  background: #ee5253;
+}
+
+.btn-resume {
+  background: #6c5ce7;
+  color: white;
+}
+.btn-resume:hover {
+  background: #5b4cc4;
+}
+
+.btn-reset {
+  background: #747d8c;
+  color: white;
+}
+.btn-reset:hover {
+  background: #2f3542;
+}
