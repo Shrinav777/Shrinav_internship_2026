@@ -1,0 +1,57 @@
+.App {
+  text-align: center;
+}
+
+form{
+  width: 1170px;
+  margin: auto;
+  display: flex;
+  gap: 20px;
+}
+
+form input{
+  flex-basis: 60%;
+  height: 40px;
+}
+
+form button{
+  flex-basis: 15%;
+}
+
+.outerDiv{
+  width: 1200px;
+  margin: auto;
+}
+
+.outerDiv ul{
+  margin: 0;
+  margin-top: 50px;
+  padding: 0;
+  list-style: none;
+}
+
+.outerDiv ul li{
+  color: white;
+  padding: 12px;
+  text-align: left;
+  margin-bottom: 20px;
+  font-size: 23px;
+  position: relative;
+  background: blue;
+}
+
+.outerDiv ul li span:first-child{
+  cursor: pointer;
+}
+
+.outerDiv ul li span:last-child{
+  position: absolute;
+  right: 20px;
+  cursor: pointer;
+}
+
+.completetodo{
+  text-decoration: line-through;
+  color: red;
+  background-color: gray;
+}
