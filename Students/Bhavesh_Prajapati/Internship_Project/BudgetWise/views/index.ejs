@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>BudgetWise</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+
+<div class="bg-circle circle1"></div>
+<div class="bg-circle circle2"></div>
+<div class="bg-circle circle3"></div>   
+
+<nav class="navbar">
+
+<div class="container">
+
+<div>
+
+<div class="navbar-brand">
+💰 BudgetWise
+</div>
+
+<div class="subtitle">
+Personal Expense Tracker
+</div>
+
+</div>
+
+</div>
+
+</nav>
+
+<div class="container mt-5">
+
+<div class="glass-container">
+
+<div class="row g-4">
+
+<div class="col-md-3">
+
+<div class="dashboard-card blue">
+
+<h5>Total Expenses</h5>
+
+<h2><%= expenses.length %></h2>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="dashboard-card green">
+
+<h5>Total Amount</h5>
+
+<h2>
+₹
+<%= expenses.reduce((sum,e)=>sum+e.amount,0) %>
+</h2>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="dashboard-card orange">
+
+<h5>Categories</h5>
+
+<h2>
+<%= [...new Set(expenses.map(e=>e.category))].length %>
+</h2>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="dashboard-card purple">
+
+<h5>Today's Date</h5>
+
+<h5><%= new Date().toLocaleDateString() %></h5>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Expense Management Panel -->
+<div class="filter-panel">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+
+            <h3 class="section-title">
+                Expense Lists
+            </h3>
+
+            <p class="section-subtitle">
+                Manage, search and filter your daily expenses
+            </p>
+
+        </div>
+
+        <div class="d-flex gap-2">
+
+            <a href="/add" class="btn btn-success btn-lg">
+                <i class="bi bi-plus-circle-fill"></i>
+                Add Expense
+            </a>
+
+            <button
+                id="exportBtn"
+                class="btn btn-primary btn-lg">
+
+                <i class="bi bi-download"></i>
+
+                Export CSV
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="row g-4">
+
+        <div class="col-lg-4">
+
+            <label class="filter-label">
+
+                🔍 Search
+
+            </label>
+
+            <input
+                id="searchInput"
+                class="form-control modern-input"
+                placeholder="Search expense...">
+
+        </div>
+
+        <div class="col-lg-2">
+
+            <label class="filter-label">
+
+                📂 Category
+
+            </label>
+
+            <select
+                id="categoryFilter"
+                class="form-select modern-input">
+
+                <option value="">All</option>
+                <option>Food</option>
+                <option>Travel</option>
+                <option>Shopping</option>
+                <option>Bills</option>
+                <option>Entertainment</option>
+                <option>Healthcare</option>
+                <option>Education</option>
+                <option>Salary</option>
+                <option>Investment</option>
+                <option>Other</option>
+
+            </select>
+
+        </div>
+
+        <div class="col-lg-2">
+
+            <label class="filter-label">
+
+                📅 From
+
+            </label>
+
+            <input
+                type="date"
+                id="fromDate"
+                class="form-control modern-input">
+
+        </div>
+
+        <div class="col-lg-2">
+
+            <label class="filter-label">
+
+                📅 To
+
+            </label>
+
+            <input
+                type="date"
+                id="toDate"
+                class="form-control modern-input">
+
+        </div>
+
+        <div class="col-lg-2">
+
+            <label>&nbsp;</label>
+
+            <div class="d-grid gap-2">
+
+                <button
+                    id="filterBtn"
+                    class="btn btn-primary">
+
+                    <i class="bi bi-funnel-fill"></i>
+
+                    Filter
+
+                </button>
+
+                <button
+                    id="resetBtn"
+                    class="btn btn-outline-light">
+
+                    Reset
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<div class="chart-box">
+
+<table class="table table-borderless align-middle expense-table">
+
+<thead>
+
+<tr>
+
+<th>Title</th>
+
+<th>Amount</th>
+
+<th>Category</th>
+
+<th>Date</th>
+
+<th>Description</th>
+
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<% expenses.forEach(expense=>{ %>
+
+<tr>
+
+<td><%= expense.title %></td>
+
+<td>₹ <%= expense.amount %></td>
+
+<td>
+
+<span class="category-badge
+<% if(expense.category==='Food'){ %> food
+<% } else if(expense.category==='Travel'){ %> travel
+<% } else if(expense.category==='Shopping'){ %> shopping
+<% } else if(expense.category==='Bills'){ %> bills
+<% } else if(expense.category==='Entertainment'){ %> entertainment
+<% } else { %> other
+<% } %>">
+
+<%= expense.category %>
+
+</span>
+
+</td>
+
+<td data-date="<%= new Date(expense.date).toISOString() %>">
+    <%= new Date(expense.date).toLocaleDateString() %>
+</td>
+
+<td>
+
+<%= expense.description %>
+
+</td>
+
+<td>
+
+<a href="/edit/<%= expense._id %>" class="btn btn-warning btn-sm">
+
+<i class="bi bi-pencil"></i>
+
+</a>
+
+<form action="/delete/<%= expense._id %>?_method=DELETE"
+
+method="POST"
+
+style="display:inline;">
+
+<button
+
+class="btn btn-danger btn-sm"
+
+onclick="return deleteExpense(event,this.form)">
+
+<i class="bi bi-trash"></i>
+
+</button>
+
+</form>
+
+</td>
+
+</tr>
+
+<% }) %>
+
+</tbody>
+
+</table>
+
+</div>
+
+
+
+</div>
+
+<div class="row mt-5">
+
+    <div class="col-md-6">
+
+        <div class="chart-card">
+
+            <h4>Expense by Category</h4>
+
+            <canvas id="categoryChart"></canvas>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-6">
+
+        <div class="chart-card">
+
+            <h4>Monthly Expenses</h4>
+
+            <canvas id="monthlyChart"></canvas>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+<div class="footer">
+
+BudgetWise © 2026 | Developed by Neel Vaghela & Bhavesh Prajapati
+
+</div>
+
+</div>
+<script id="expense-data" type="application/json">
+<%- JSON.stringify(expenses) %>
+</script>
+
+<script>
+const expenses = JSON.parse(
+    document.getElementById("expense-data").textContent
+);
+</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/js/dashboard.js"></script>
+
+<script>
+
+function deleteExpense(event, form){
+
+    event.preventDefault();
+
+    Swal.fire({
+
+        title:"Delete Expense?",
+
+        text:"This action cannot be undone.",
+
+        icon:"warning",
+
+        showCancelButton:true,
+
+        confirmButtonColor:"#ef4444",
+
+        cancelButtonColor:"#6b7280",
+
+        confirmButtonText:"Delete"
+
+    }).then((result)=>{
+
+        if(result.isConfirmed){
+
+            form.submit();
+
+        }
+
+    });
+
+}
+
+</script>
+
+
+
+</body>
+
+</html>
