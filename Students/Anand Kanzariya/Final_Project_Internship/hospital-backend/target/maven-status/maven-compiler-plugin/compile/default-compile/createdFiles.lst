@@ -1,0 +1,10 @@
+com\anand\hospital_management_system\controller\AppointmentController.class
+com\anand\hospital_management_system\repository\AppointmentRepository.class
+com\anand\hospital_management_system\entity\Appointment.class
+com\anand\hospital_management_system\controller\PatientController.class
+com\anand\hospital_management_system\repository\PatientRepository.class
+com\anand\hospital_management_system\HospitalManagementSystemApplication.class
+com\anand\hospital_management_system\entity\Patient.class
+com\anand\hospital_management_system\controller\DoctorController.class
+com\anand\hospital_management_system\repository\DoctorRepository.class
+com\anand\hospital_management_system\entity\Doctor.class
