@@ -43,13 +43,14 @@ public class SecurityConfig {
         return http.build();
     }
 
+
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        // TODO: replace with your real Vercel URL once deployed, e.g. https://contact-book.vercel.app
-        config.setAllowedOrigins(List.of("http://localhost:5173", "https://your-app.vercel.app"));
+        config.setAllowedOrigins(List.of("https://contact-book-eta-seven.vercel.app/","http://localhost:5173"));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("Authorization", "Content-Type"));
+        config.setAllowCredentials(true);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);
