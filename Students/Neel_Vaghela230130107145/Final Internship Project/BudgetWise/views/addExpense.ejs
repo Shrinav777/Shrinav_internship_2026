@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Add Expense | BudgetWise</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+
+<div class="bg-circle circle1"></div>
+<div class="bg-circle circle2"></div>
+<div class="bg-circle circle3"></div>
+
+<div class="container py-5">
+
+<div class="form-card">
+
+<div class="text-center mb-4">
+
+<h2>💰 Add New Expense</h2>
+
+<p class="text-light opacity-75">
+
+Track your daily spending
+
+</p>
+
+</div>
+
+<form action="/add" method="POST">
+
+<div class="mb-4">
+
+<label class="form-label">Expense Title</label>
+
+<input
+type="text"
+name="title"
+class="form-control modern-input"
+placeholder="Enter title"
+required>
+
+</div>
+
+<div class="row">
+
+<div class="col-md-6 mb-4">
+
+<label class="form-label">Amount (₹)</label>
+
+<input
+type="number"
+name="amount"
+class="form-control modern-input"
+placeholder="Enter amount"
+required>
+
+</div>
+
+<div class="col-md-6 mb-4">
+
+<label class="form-label">Category</label>
+
+<select
+name="category"
+class="form-select modern-input"
+required>
+
+<option>Food</option>
+<option>Travel</option>
+<option>Shopping</option>
+<option>Bills</option>
+<option>Entertainment</option>
+<option>Healthcare</option>
+<option>Education</option>
+<option>Salary</option>
+<option>Investment</option>
+<option>Other</option>
+
+</select>
+
+</div>
+
+</div>
+
+<div class="mb-4">
+
+<label class="form-label">Expense Date</label>
+
+<input
+        type="date"
+        id="expenseDate"
+        name="date"
+        class="form-control modern-input"
+        required>
+
+</div>
+
+<div class="mb-4">
+
+<label class="form-label">
+
+Description
+
+</label>
+
+<textarea
+name="description"
+rows="4"
+class="form-control modern-input"
+placeholder="Write description..."></textarea>
+
+</div>
+
+<div class="d-flex justify-content-between">
+
+<a
+href="/"
+class="btn btn-outline-light">
+
+<i class="bi bi-arrow-left"></i>
+
+Back
+
+</a>
+
+<button
+type="submit"
+class="btn btn-success">
+
+<i class="bi bi-check-circle-fill"></i>
+
+Save Expense
+
+</button>
+
+</div>
+
+</form>
+
+</div>
+
+</div>
+
+<script>
+document.getElementById("expenseDate").value =
+new Date().toISOString().split("T")[0];
+</script>
+
+</body>
+
+</html>

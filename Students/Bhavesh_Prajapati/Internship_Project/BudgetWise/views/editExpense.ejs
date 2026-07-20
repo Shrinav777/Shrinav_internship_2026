@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Edit Expense | BudgetWise</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+
+<div class="bg-circle circle1"></div>
+<div class="bg-circle circle2"></div>
+<div class="bg-circle circle3"></div>
+
+<div class="container py-5">
+
+<div class="form-card">
+
+<div class="text-center mb-4">
+
+<h2>✏️ Edit Expense</h2>
+
+<p class="text-light opacity-75">
+Update your expense details
+</p>
+
+</div>
+
+<form action="/edit/<%= expense._id %>?_method=PUT" method="POST">
+
+<div class="mb-4">
+
+<label class="form-label">
+Expense Title
+</label>
+
+<input
+type="text"
+name="title"
+class="form-control modern-input"
+value="<%= expense.title %>"
+required>
+
+</div>
+
+<div class="row">
+
+<div class="col-md-6 mb-4">
+
+<label class="form-label">
+Amount
+</label>
+
+<input
+type="number"
+name="amount"
+class="form-control modern-input"
+value="<%= expense.amount %>"
+required>
+
+</div>
+
+<div class="col-md-6 mb-4">
+
+<label class="form-label">
+Category
+</label>
+
+<select
+name="category"
+class="form-select modern-input">
+
+<option value="Food" <%= expense.category=="Food"?"selected":"" %>>🍔 Food</option>
+
+<option value="Travel" <%= expense.category=="Travel"?"selected":"" %>>🚗 Travel</option>
+
+<option value="Shopping" <%= expense.category=="Shopping"?"selected":"" %>>🛍 Shopping</option>
+
+<option value="Bills" <%= expense.category=="Bills"?"selected":"" %>>💡 Bills</option>
+
+<option value="Entertainment" <%= expense.category=="Entertainment"?"selected":"" %>>🎬 Entertainment</option>
+
+<option value="Healthcare" <%= expense.category=="Healthcare"?"selected":"" %>>🏥 Healthcare</option>
+
+<option value="Education" <%= expense.category=="Education"?"selected":"" %>>📚 Education</option>
+
+<option value="Salary" <%= expense.category=="Salary"?"selected":"" %>>💰 Salary</option>
+
+<option value="Investment" <%= expense.category=="Investment"?"selected":"" %>>📈 Investment</option>
+
+<option value="Other" <%= expense.category=="Other"?"selected":"" %>>📦 Other</option>
+
+</select>
+
+</div>
+
+</div>
+
+<div class="mb-4">
+
+<label class="form-label">
+Expense Date
+</label>
+
+<input
+type="date"
+name="date"
+class="form-control modern-input"
+value="<%= new Date(expense.date).toISOString().split('T')[0] %>"
+required>
+
+</div>
+
+<div class="mb-4">
+
+<label class="form-label">
+Description
+</label>
+
+<textarea
+name="description"
+rows="4"
+class="form-control modern-input"><%= expense.description %></textarea>
+
+</div>
+
+<div class="d-flex justify-content-between">
+
+<a href="/" class="btn btn-outline-light">
+
+<i class="bi bi-arrow-left"></i>
+
+Back
+
+</a>
+
+<button
+type="submit"
+class="btn btn-warning">
+
+<i class="bi bi-check-circle-fill"></i>
+
+Update Expense
+
+</button>
+
+</div>
+
+</form>
+
+</div>
+
+</div>
+
+</body>
+
+</html>
