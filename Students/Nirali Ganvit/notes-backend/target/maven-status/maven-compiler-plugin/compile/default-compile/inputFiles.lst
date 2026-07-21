@@ -1,0 +1,13 @@
+E:\SHRINAV\Notes_Management_system\notes-backend\src\main\java\com\example\notes_backend\config\CorsConfig.java
+E:\SHRINAV\Notes_Management_system\notes-backend\src\main\java\com\example\notes_backend\controller\AuthController.java
+E:\SHRINAV\Notes_Management_system\notes-backend\src\main\java\com\example\notes_backend\controller\NoteController.java
+E:\SHRINAV\Notes_Management_system\notes-backend\src\main\java\com\example\notes_backend\exception\ResourceNotFoundException.java
+E:\SHRINAV\Notes_Management_system\notes-backend\src\main\java\com\example\notes_backend\model\Note.java
+E:\SHRINAV\Notes_Management_system\notes-backend\src\main\java\com\example\notes_backend\model\User.java
+E:\SHRINAV\Notes_Management_system\notes-backend\src\main\java\com\example\notes_backend\NotesBackendApplication.java
+E:\SHRINAV\Notes_Management_system\notes-backend\src\main\java\com\example\notes_backend\repository\NoteRepository.java
+E:\SHRINAV\Notes_Management_system\notes-backend\src\main\java\com\example\notes_backend\repository\UserRepository.java
+E:\SHRINAV\Notes_Management_system\notes-backend\src\main\java\com\example\notes_backend\service\impl\NoteServiceImpl.java
+E:\SHRINAV\Notes_Management_system\notes-backend\src\main\java\com\example\notes_backend\service\impl\UserServiceImpl.java
+E:\SHRINAV\Notes_Management_system\notes-backend\src\main\java\com\example\notes_backend\service\NoteService.java
+E:\SHRINAV\Notes_Management_system\notes-backend\src\main\java\com\example\notes_backend\service\UserService.java
