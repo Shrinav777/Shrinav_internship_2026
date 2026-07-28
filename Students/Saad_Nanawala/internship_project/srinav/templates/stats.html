@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Dashboard</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #f1f5f9; color: #334155; }
+        
+        header { background-color: #0f172a; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { color: #38bdf8; font-size: 1.5rem; font-weight: 700; text-decoration: none; }
+        nav { display: flex; gap: 1.5rem; }
+        nav a { color: #94a3b8; text-decoration: none; font-weight: 600; padding: 0.5rem 1rem; border-radius: 6px; }
+        nav a:hover, nav a.active { color: #ffffff; background-color: #1e293b; }
+        
+        .container { max-width: 1100px; margin: 2rem auto; padding: 0 1rem; }
+        .card { background: white; padding: 2rem; border-radius: 10px; border: 1px solid #e2e8f0; margin-bottom: 1.5rem; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1rem; }
+        .stat-box { background: #f8fafc; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #2563eb; }
+        .stat-box h4 { color: #64748b; font-size: 0.85rem; text-transform: uppercase; }
+        .stat-box p { font-size: 1.75rem; font-weight: 700; color: #0f172a; margin-top: 0.5rem; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="/" class="logo">Cric Analytics</a>
+        <nav>
+            <a href="/">Dashboard</a>
+            <a href="/roster">Player Roster</a>
+            <a href="/stats" class="active">Analytics</a>
+            <a href="/about">About System</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <h2>Live Roster Statistics</h2>
+            <p style="color: #64748b; margin-top: 0.25rem;">Real-time aggregation fetched directly from the MySQL engine.</p>
+            
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <h4>Total Registered Players</h4>
+                    <p id="totalPlayers">0</p>
+                </div>
+                <div class="stat-box">
+                    <h4>Total Squad Runs</h4>
+                    <p id="totalRuns">0</p>
+                </div>
+                <div class="stat-box">
+                    <h4>Total Squad Wickets</h4>
+                    <p id="totalWickets">0</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function fetchMetrics() {
+            try {
+                const response = await fetch('/api/players');
+                const players = await response.json();
+
+                document.getElementById('totalPlayers').innerText = players.length;
+                
+                const runs = players.reduce((acc, curr) => acc + (curr.runs || 0), 0);
+                const wickets = players.reduce((acc, curr) => acc + (curr.wickets || 0), 0);
+
+                document.getElementById('totalRuns').innerText = runs.toLocaleString();
+                document.getElementById('totalWickets').innerText = wickets.toLocaleString();
+            } catch (err) {
+                console.error("Failed to load analytics:", err);
+            }
+        }
+
+        fetchMetrics();
+    </script>
+</body>
+</html>

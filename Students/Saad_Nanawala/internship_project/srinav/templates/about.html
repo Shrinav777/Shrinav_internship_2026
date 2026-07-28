@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Project</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #f1f5f9; color: #334155; }
+        
+        header { background-color: #0f172a; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { color: #38bdf8; font-size: 1.5rem; font-weight: 700; text-decoration: none; }
+        nav { display: flex; gap: 1.5rem; }
+        nav a { color: #94a3b8; text-decoration: none; font-weight: 600; padding: 0.5rem 1rem; border-radius: 6px; }
+        nav a:hover, nav a.active { color: #ffffff; background-color: #1e293b; }
+        
+        .container { max-width: 1100px; margin: 2rem auto; padding: 0 1rem; }
+        .card { background: white; padding: 2rem; border-radius: 10px; border: 1px solid #e2e8f0; line-height: 1.6; }
+        .card h2 { margin-bottom: 1rem; color: #0f172a; }
+        .tech-list { margin-top: 1rem; padding-left: 1.5rem; }
+        .tech-list li { margin-bottom: 0.5rem; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="/" class="logo">Cric Analytics</a>
+        <nav>
+            <a href="/">Dashboard</a>
+            <a href="/roster">Player Roster</a>
+            <a href="/stats">Analytics</a>
+            <a href="/about" class="active">About System</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <h2>System Architecture & Overview</h2>
+            <p>This project is a full-stack database application designed to manage sports player metrics efficiently using modern RESTful communication patterns.</p>
+            
+            <h3 style="margin-top: 1.5rem; color: #0f172a;">Key Features:</h3>
+            <ul class="tech-list">
+                <li><strong>Asynchronous Data Processing:</strong> Uses JavaScript <code>fetch()</code> API for smooth CRUD operations without reloading the page.</li>
+                <li><strong>Parameterized SQL Execution:</strong> Ensures security against SQL injection vulnerabilities in MySQL.</li>
+                <li><strong>Clean Architecture:</strong> Completely decouples backend routing from presentation layer CSS styling.</li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>
